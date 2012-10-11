@@ -22,7 +22,8 @@
 
 		}
 		/**
-		 * funcion que carga la libreria IF.
+		 * Funcion que carga la libreria IF.
+		 * Solo archivos php, el resto los ignora.
 		 */
 		public function loaderIF()
 		{
@@ -30,16 +31,15 @@
 
 			//Accedemos a la ruta de la Liberia para leer los archivos de IF
 			$dir_library = @opendir($path) or $this->errorApp(1);
-			//Include de la libreria IF
-			while ($file = readdir($dir_library)) {
-				if( $file != ".." ){
-					if($file != "."){
-						include_once $path.'/'.$file;
-					}
+			//Include de la libreria IF, solo archivos php, el resto los ignora
+			while ( $file = readdir( $dir_library ) ) {
+				if( strpos( $file, "php" ) ){
+					include_once $path.'/'.$file;
 				}
 			}
-			closedir($dir_library);
+			closedir( $dir_library );
 		}
+
 		/**
 		 * functión que establece el errores relacionados con el Framework.
 		 * @param integer $id
