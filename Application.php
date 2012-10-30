@@ -18,7 +18,7 @@
 			//
 			$this->getUrl();
 			//
-			$view = new IF_VIEW( $this->_data,  $appConfig->layout_default );
+// 			$view = new IF_VIEW( $this->_data,  $appConfig->layout_default );
 
 		}
 		/**
