@@ -62,7 +62,7 @@ class IF_VIEW
 
         ob_start();
 
-        $path_view = $this->_path . "/$action.phtml";
+        $path_view = $this->_path . "/$action.php";
 
         include $path_view;
 
