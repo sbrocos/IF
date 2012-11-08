@@ -26,7 +26,7 @@ class IF_VIEW
         }
 
         if (!file_exists($this->_path)) {
-            $message = utf8_decode("Carpeta e vistas (view) no encontrada");
+            $message = utf8_decode("Carpeta e vistas (view) no encontrada path:" . $this->_path);
             die($message);
         }
 
@@ -49,6 +49,18 @@ class IF_VIEW
             $this->contenido();
         }
 
+    }
+
+    public function renderAjax($view_callback = null)
+    {
+        $action = strtolower($this->_params['action']);
+        if ($view_callback){
+            extract($view_callback);
+        }
+
+        ob_start();
+        include_once $this->_path . "/$action.php";
+        ob_end_flush();
     }
 
     /**

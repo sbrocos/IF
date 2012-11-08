@@ -107,8 +107,8 @@ class IF_APPLICATION
             $controller = $default;
             $action = $default;
         }
-        $this->_data['controller'] = $controller;
-        $this->_data['action'] = $action;
+        $this->_data['controller'] = ucfirst($controller);
+        $this->_data['action'] = ucfirst($action);
 
     }
 
@@ -130,8 +130,10 @@ class IF_APPLICATION
             include_once $pathController;
             //Instanciamos la clase del Controlador
             $instance = new $this->_data['controller'];
+            $action = $this->_data['action'];
+
             //llamamos a la función que ejecuta la action pertinente.
-            $instance->exec($instance, $this->_view, $this->_data['action']);
+            $instance->exec($this->_view, $this->_data['action']);
 
         } else {
             $this->errorApp(3);
