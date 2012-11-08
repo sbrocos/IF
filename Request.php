@@ -1,48 +1,52 @@
 <?php
-
+/**
+ * Clase para tratar el REQUEST
+ * @author Sergio
+ * @version v.0.2
+ */
 class IF_REQUEST
 {
-	protected $request;
+    protected $request;
 
-	public function __construct()
-	{
-		$query = parse_url( $_SERVER['REQUEST_URI'] );
-		$this->request = explode('/', $query['path']);
-	}
+    public function __construct()
+    {
+        $query = parse_url($_SERVER['REQUEST_URI']);
+        $this->request = explode('/', $query['path']);
+    }
 
-	public function getRequest()
-	{
+    public function getRequest()
+    {
 
-	}
+    }
 
-	public function getParams()
-	{
+    public function getParams()
+    {
 
-	}
+    }
 
-	public function getParam ( $param )
-	{
+    public function getParam($param)
+    {
 
-	}
+    }
 
-	public function isPost( $param )
-	{
+    public function isPost($param)
+    {
 
-	}
+    }
 
-	public function isGet( $param )
-	{
+    public function isGet($param)
+    {
 
-	}
+    }
 
-	public function getPost()
-	{
+    public function getPost()
+    {
 
-	}
+    }
 
-	public function getGet()
-	{
+    public function getGet()
+    {
 
-	}
+    }
 
 }

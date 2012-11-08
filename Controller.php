@@ -1,36 +1,54 @@
 <?php
 /**
- * 
+ * Clase 'Padre' para los controladores
  * @author Sergio
- *
+ * @version v.0.2
  */
 
 class IF_CONTROLLER
 {
-	private $_view;
-	private $data_app;
-	
-	
-	public function view( $data )
-	{
-		$param = IF_APPLICATION::getDataUrl();
-	}
-	public function exec( $controller, $action, $instance )
-	{
-		$this->data_app = call_user_func( array($instance, $action) );
-		
-		$this->_view = new IF_VIEW2( $this->_data,  $appConfig->layout_default );
-		IF_DEBUG::dump($this->data_app);
-		die();
-	}
-	
-	public function noLayout()
-	{
-		
-	}
-	
-	public function noRender()
-	{
-		
-	}
+    private $_renderLayout;
+    private $_View;
+
+    /**
+     * Función que ejecuta la action de la clase(contolador) hija
+     * @param clase hija $Instance
+     * @param IF_VIEW $View
+     * @param string $action
+     */
+    public function exec($Instance, $View, $action)
+    {
+        $this->_renderLayout = true;
+        $this->_View = $View;
+        //llamamos a la action del Controller Hijo
+        $data = $Instance->$action();
+        //renderizamos la vista
+        $View->renderPHP($data, $this->_renderLayout);
+    }
+
+    /**
+     * Funcion que deniega el renderizado del Layout
+     */
+    public function noLayout()
+    {
+        $this->_renderLayout = false;
+    }
+
+    /**
+     * Funcion que establece el Layout a usar por la APP.
+     * @param string $name
+     */
+    public function setLayout($layoutName)
+    {
+        $this->_View->setLayout($layoutName);
+    }
+
+    /**
+     * Función que establece una Vista especificada por el usuario.
+     * @param string $viewName
+     */
+    public function setView($viewName)
+    {
+        $this->_View->setView($viewName);
+    }
 }
