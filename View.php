@@ -1,16 +1,23 @@
 <?php
+namespace ICHI;
+
 /**
- * Clase que gestiona las Vistas de la aplicación
- * @author sbrocos
- * @version v.0.2
- */
+* Clase que gestiona las vistas
+*
+* Clase que gestiona las vistas, que tiene que renderizar, que layout y vistas, sean asociadas o no con la action
+* o definida por el propio usuario.
+*
+* @category   IF
+* @package    IF_VIEW
+* @copyright  Copyright (c) 2012 Sergio Brocos (http://ichiframework.es)
+* @license    http://ichiframework.es/license   BSD License
+* @author     sbrocos
+* @version    V.0.1
+* @since      Class available since Release V.0.1
+*/
+
 class IF_VIEW
 {
-    protected $_path;
-    protected $_layout;
-    protected $_pathView;
-    protected $_params;
-
     /**
      * Constructor de la clase
      * @param array $parametros
@@ -51,6 +58,10 @@ class IF_VIEW
 
     }
 
+    /**
+     * Función que renderiza la página para AJAX
+     * @param unknown_type $view_callback
+     */
     public function renderAjax($view_callback = null)
     {
         $action = strtolower($this->_params['action']);
@@ -64,7 +75,9 @@ class IF_VIEW
     }
 
     /**
-     *
+     * Función que se llamará desde los layouts para cargar las vistas.
+     * Se accede al buffer antes de ser mostrada en el navegador para incluír el código de la vista y se ejecute
+     * el PHP que contenga.
      */
     public function contenido()
     {

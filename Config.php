@@ -1,9 +1,20 @@
 <?php
+namespace ICHI;
+
 /**
- * Clase que trata los datos recibidos de 'config.local.json' que serviran para la configuracion de la aplicacion.
- * @author sbrocos
- * @version v.0.2
- */
+* Clase que trata la configuración
+*
+* Clase que carga desde el fichero /app/config/config.local.json para poder cargar las configuraciones
+* de la web que deben ser rellenados por el usuario.
+*
+* @category   IF
+* @package    IF_CONFIG
+* @copyright  Copyright (c) 2012 Sergio Brocos (http://ichiframework.es)
+* @license    http://ichiframework.es/license   BSD License
+* @author     sbrocos
+* @version    V.0.1
+* @since      Class available since Release V.0.1
+*/
 
 class IF_CONFIG
 {
@@ -13,7 +24,9 @@ class IF_CONFIG
      */
     protected $_json;
 
-
+    /**
+     * Función del constructor de la clase.
+     */
     public function __construct()
     {
         if (file_exists( APP_PATH.'/config')) {
@@ -38,7 +51,7 @@ class IF_CONFIG
         if (isset($this->_json->database_configure)) {
             $count = count( $this->_json->database_configure[0] );
             if ($count == 1) {
-                 $database = get_object_vars($this->_json->database_configure[0]);
+                $database = get_object_vars($this->_json->database_configure[0]);
             }else{
                 //TODO por hacer
             }

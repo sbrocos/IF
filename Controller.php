@@ -1,15 +1,41 @@
 <?php
+namespace ICHI;
+
 /**
- * Clase 'Padre' para los controladores
- * @author Sergio
- * @version v.0.2
- */
+* Clase abstracta padre de los controlladres.
+*
+* Clase abstracta, que será de padre de todos los controladores de la aplicación.
+*
+* @category   IF
+* @package    IF_CONTROLLER
+* @copyright  Copyright (c) 2012 Sergio Brocos (http://ichiframework.es)
+* @license    http://ichiframework.es/license   BSD License
+* @author     sbrocos
+* @version    V.0.1
+* @since      Class available since Release V.0.1
+*/
 
 abstract class IF_CONTROLLER
 {
+    /**
+     *
+     * @var boolean
+     */
     private $_renderLayout;
+    /**
+     *
+     * @var IF_VIEW object
+     */
     private $_View;
+    /**
+     *
+     * @var IF_REQUEST object
+     */
     private $_Request;
+    /**
+     *
+     * @var boolean
+     */
     private $_noRender;
 
     /**
@@ -92,4 +118,4 @@ abstract class IF_CONTROLLER
     {
         return $this->_Request->haveRequest();
     }
-}
+    }

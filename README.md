@@ -1,16 +1,19 @@
-Ichi Framework
-================
+IF V.0.1 *alpha*
+==
 
-Aún estamos trabajando en la versión alpha de este framework que está en fase de desarrollo, 
-por tanto su estabilidad no está ni mucho menos garantizada... ni de lejos. De momento se ha implementado
-lo más básico del sistema central del Framework, cumple con la filosofía MVC, pero aún no se le puede sacar 
-todo su potencial a esta filosofía, ya que estamos desarollando utilidades para poder trabajar con Ajax.
+Libreria de IchiFramework.
 
-Ichi Framework (IF) se basa en Zend Framework a nvel conceptual, ya que el desarrollo se está realizando de 
-manera totalmente independiente al citado framework por razones obvias. Se está intentando crear un framework
-nuevo, que aunque tenga puntos en común con otros más populares, recoja mi experiencia con ellos para plasmarlo 
-como buenamente puedo en otra interpretación de la misma "historia".
 
-Teniendo en cuenta que sólo hay una persona en el equipo de análisis y desarrollo, entiendan que la velocidad 
-de actualizaciones, y finalizaciones de entregas está bastante limitada. Pero estamos en ello. Tengna paciencia 
-y hagan un Follow ME!!!
+*Ichi Framework* (IF), es un proyecto *Open Source* (consulte [licencia](LICENSE.md)) que pretende 
+ofrecer una alternativa a los *frameworks* PHP más conocidos. Desarrollado por y para programadores PHP.
+
+Actualmente estamos presentado la versión V.0.1, la primera entrega de fase *alpha*. En ella se 
+implementado la filosofía **MVC** y algunas "ayudas" para el desarrollo de aplicaciones sencillas.
+
+Avisamos de que no se trata de una versión estable y aún carece de las herramientas necearias para usar
+en un proyecto mínimamente complejo.
+
+Para más información, estamos preparando la página oficial de este proyecto: 
+[ichiframework.es](http://ichiframework.es)
+
+

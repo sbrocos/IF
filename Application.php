@@ -1,23 +1,25 @@
 <?php
+namespace ICHI;
+
 /**
- * Clase principal de la Aplicación
- * @author sbrocos
- * @version v.0.2
- */
+* Short description for class
+*
+* Long description for class (if any)...
+*
+* @category   IF
+* @package    IF_APPLICATION
+* @copyright  Copyright (c) 2012 Sergio Brocos (http://ichiframework.es)
+* @license    http://ichiframework.es/license   BSD License
+* @author     sbrocos
+* @version    V.0.1
+* @since      Class available since Release V.0.1
+*/
 class IF_APPLICATION
 {
     /**
-     *
-     * @var array
+     * Función del constructor de la clase
      */
-    protected $_data;
-    /**
-     *
-     * @var IF_VIEW object
-     */
-    protected $_view;
-
-    public function __construct()
+    function __construct ()
     {
         //Carga las librerias de IF
         $this->loaderIF();
@@ -35,9 +37,11 @@ class IF_APPLICATION
 
         $this->loadUrl();
     }
+
     /**
      * Funcion que carga la libreria IF.
-     * Solo archivos php, el resto los ignora.
+     * Sólo carga los archivos php, el resto los ignora.
+     * Posiblemente habra que habrá que cambiarlo por algo más concreto.
      */
     public function loaderIF()
     {
@@ -56,6 +60,7 @@ class IF_APPLICATION
 
     /**
      * functión que establece el errores relacionados con el Framework.
+     * Habrá que replantearlo otra vez, porque ahora mismo es un poco inútil.
      * @param integer $id
      */
     protected function errorApp( $id )
@@ -84,7 +89,7 @@ class IF_APPLICATION
     }
 
     /**
-     * Función que garga la info del request para determinar controller/action.
+     * Función que carga la info del SERVER['REQUEST_URI'] para determinar controller/action.
      * Si no establece por defecto INDEX en ambos casos
      */
     protected function getUrl()
@@ -140,3 +145,5 @@ class IF_APPLICATION
         }
     }
 }
+
+?>

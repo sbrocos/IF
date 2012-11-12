@@ -36,12 +36,12 @@ class IF_REQUEST
         }
     }
 
-    public function isPost($param)
+    public function isPost($key)
     {
 
     }
 
-    public function isGet($param)
+    public function isGet($key)
     {
 
     }
