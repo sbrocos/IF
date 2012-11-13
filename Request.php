@@ -1,28 +1,50 @@
 <?php
+namespace ICHI;
+
 /**
- * Clase para tratar el REQUEST
- * @author Sergio
- * @version v.0.2
- */
+* Clase que gestiona el request.
+*
+* Clase que gestiona el $_POST y el $_GET. Para que desde elos controladores pueda
+*
+* @category   IF
+* @package    IF_REQUEST
+* @copyright  Copyright (c) 2012 Sergio Brocos (http://ichiframework.es)
+* @license    http://ichiframework.es/license   BSD License
+* @author     Sergio
+* @version    V.0.1
+* @since      Class available since Release V.0.1
+*/
+
 class IF_REQUEST
 {
+    /**
+     * Variable que contiene el REQUEST, el conjunto de las variables GET y POST recogidas.
+     * @var array
+     */
     protected $_request;
 
+    /**
+     * Función del constructor de la clase.
+     * une en una variable el POST y el GET.
+     */
     public function __construct()
     {
         $this->_request = array_merge_recursive($_GET, $_POST);
     }
 
-    public function getRequest()
-    {
-
-    }
-
+    /**
+     * Función que devuelve el Request entero.
+     */
     public function getParams()
     {
         return $this->_request;
     }
 
+    /**
+     * Función que nos devuelve el valor de un paramtro pasado por GET o POST concreto.
+     * @param string $key
+     * @return string:|boolean
+     */
     public function getParam($key)
     {
         if ($key) {
@@ -36,24 +58,42 @@ class IF_REQUEST
         }
     }
 
+    /**
+     * Función que nos devuelve un boolean si la $key coicide con un parámetro suministrado por el POST
+     * @param string $key
+     * @return boolean
+     */
     public function isPost($key)
     {
-
+        //TODO escribir código pertinente
     }
 
+    /**
+     * Función que nos devuelve un boolean si la $key coicide con un parámetro suministrado por el GET
+     * @param string $param
+     * @return boolean
+     */
     public function isGet($key)
     {
-
+        //TODO escribir código pertinente
     }
 
+    /**
+     * Función que devuelve sólo los parámetros asociados al POST.
+     * @return array:|boolean
+     */
     public function getPost()
     {
-
+        //TODO escribir código pertinente
     }
 
+    /**
+     * Función que devuelve sólo los parámetros asociados al GET.
+     * @return array:|boolean
+     */
     public function getGet()
     {
-
+        //TODO escribir código pertinente
     }
 
     /**
@@ -90,5 +130,4 @@ class IF_REQUEST
                 break;
         }
     }
-
 }
