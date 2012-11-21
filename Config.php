@@ -51,7 +51,7 @@ class IF_CONFIG
         if (isset($this->_json->database_configure)) {
             $count = count( $this->_json->database_configure[0] );
             if ($count == 1) {
-                $database = get_object_vars($this->_json->database_configure[0]);
+                $database = $this->_json->database_configure[0];
             }else{
                 //TODO por hacer
             }
