@@ -39,6 +39,12 @@ abstract class IF_CONTROLLER
     private $_noRender;
 
     /**
+     *
+     * @var array;
+     */
+    private $_data;
+
+    /**
      * Función que ejecuta la action de la clase(contolador) hija
      * @param clase hija $Instance
      * @param IF_VIEW $View
@@ -51,12 +57,12 @@ abstract class IF_CONTROLLER
         $this->_View = $View;
         $this->_noRender = false;
         //llamamos a la action del Controller Hijo
-        $data = $this->$action();
+        $this->_data = $this->$action();
         //renderizamos la vista
         if (!$this->_noRender) {
-            $View->renderPHP($data, $this->_renderLayout);
+            $View->renderPHP($this->_data, $this->_renderLayout);
         } else {
-            $View->renderAjax($data);
+            $View->renderAjax($this->_data);
         }
     }
 
@@ -118,4 +124,18 @@ abstract class IF_CONTROLLER
     {
         return $this->_Request->haveRequest();
     }
+
+    /**
+     * Función que pasa parámetros para el Layout
+     * Cuando queremos que pasar una variable para usar en el layout, se seteará con esta función.
+     * @params array $params
+     */
+    public function passToLayout($params)
+    {
+        if ( is_array($params)) {
+            $this->_View->setDataLayout($params);
+        } else {
+            //TODO error
+        }
     }
+ }

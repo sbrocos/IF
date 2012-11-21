@@ -19,6 +19,10 @@ namespace ICHI;
 class IF_VIEW
 {
     /**
+     * @var array $_dataLayout
+     */
+    private $_dataLayout;
+    /**
      * Constructor de la clase
      * @param array $parametros
      */
@@ -52,6 +56,7 @@ class IF_VIEW
         $this->_params['view_callback'] = $view_callback;
         if ($renderLayout) {
             include_once APP_PATH_LAYOUT. '/' . $this->_layout;
+            //todo es posible eliminar las variables creadas con el extrat?
         } else {
             $this->contenido();
         }
@@ -96,7 +101,7 @@ class IF_VIEW
 
     /**
      * Función que gestiona algunos errores básicos
-     * @param array $parametros
+     * @param array: $parametros
      * @throws Exception
      */
     protected function _gestionError(array $parametros = null)
@@ -120,7 +125,7 @@ class IF_VIEW
 
     /**
      * Función que establece con que Layout se va a trabajar
-     * @param string $layoutName
+     * @param string: $layoutName
      */
     public function setLayout($layoutName = null)
     {
@@ -138,7 +143,7 @@ class IF_VIEW
 
     /**
      * Función para definir cuál será la vista asociada a la action por el usuario
-     * @param string $viewName
+     * @param string: $viewName
      */
     public function setView($viewName = null)
     {
@@ -150,5 +155,46 @@ class IF_VIEW
                 die("Error vista no encontrada");
             }
         }
+    }
+
+    /**
+     * Función que devuelve el contenido de una variable pasada previamente al Layout.
+     * Si no está definida la variable devuelve FALSE
+     * @params string $key
+     * @return multitype: $key
+     */
+    public function getVarLayout($key = null)
+    {
+        if ($key) {
+            if (is_string($key)) {
+                if (array_key_exists( $key, $this->_dataLayout )) {
+                    return $this->_dataLayout[$key];
+                }
+            } else {
+                //todo reportar error por no ser string
+            }
+        } else {
+            //todo reportar error por no pasar variable
+        }
+
+        return false;
+    }
+
+    /**
+     * Función GETTER $_dataLayout
+     * @return array $_dataLayout
+     */
+    public function getDataLayout ()
+    {
+        return $this->_dataLayout;
+    }
+
+    /**
+     * Función SETTER $_dataLayout
+     * @param multitype: $_dataLayout
+     */
+    public function setDataLayout ($_dataLayout)
+    {
+        $this->_dataLayout = $_dataLayout;
     }
 }
